@@ -9,6 +9,7 @@ const GIRLS = {
     gradient: 'gradient-zeynep',
     bgColor: 'bg-[#00BFFF]',
     textColor: 'text-[#00BFFF]',
+    imagePath: '/images/zeynep.jpeg',
     description: 'Main character energy\'nin ta kendisisin! Mavi saçınla herkesi yönetiyorsun, dominant queen! 💙',
     emoji: '👑'
   },
@@ -18,6 +19,7 @@ const GIRLS = {
     gradient: 'gradient-hilal',
     bgColor: 'bg-[#9370DB]',
     textColor: 'text-[#9370DB]',
+    imagePath: '/images/hilal.jpg',
     description: 'Grubun kalbi sensin! Dansın, sesin, sanatınla herkesi bir araya getiriyorsun. Purple queen! 💜',
     emoji: '🎭'
   },
@@ -27,6 +29,7 @@ const GIRLS = {
     gradient: 'gradient-esin',
     bgColor: 'bg-[#FFD700]',
     textColor: 'text-[#FF69B4]',
+    imagePath: '/images/esin.jpeg',
     description: 'Golden retriever energy! Hiç durmuyorsun, kaos ama sevimli kaos. Blonde queen! ✨',
     emoji: '⚡'
   },
@@ -36,6 +39,7 @@ const GIRLS = {
     gradient: 'gradient-sueda',
     bgColor: 'bg-[#800020]',
     textColor: 'text-[#800020]',
+    imagePath: '/images/sueda.jpeg',
     description: 'Perfectionist queen! Detaylar senin işin, her şeyi mükemmel yapıyorsun. Career-focused! 💼',
     emoji: '📊'
   },
@@ -45,6 +49,7 @@ const GIRLS = {
     gradient: 'gradient-lidya',
     bgColor: 'bg-[#DC143C]',
     textColor: 'text-[#DC143C]',
+    imagePath: '/images/lidya.jpeg',
     description: 'Feminine energy\'nin ta kendisisin! Flirty, confident, magnetic. Herkes senin peşinde! 🔥',
     emoji: '💋'
   },
@@ -54,6 +59,7 @@ const GIRLS = {
     gradient: 'gradient-mina',
     bgColor: 'bg-[#F5F5DC]',
     textColor: 'text-[#8B7355]',
+    imagePath: '/images/mina.jpeg',
     description: 'Asil ve zarif! Quiet luxury senin tarzın. High standards, unbothered queen! 🤍',
     emoji: '🦢'
   }
@@ -233,14 +239,22 @@ function App() {
                 {girl.description}
               </motion.p>
               
-              {/* Placeholder for photo */}
+              {/* Girl's photo */}
               <motion.div
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ delay: 0.6, type: "spring" }}
-                className="w-32 h-32 mx-auto mb-6 rounded-full bg-white/20 backdrop-blur-sm border-4 border-white/30 flex items-center justify-center"
+                className="w-48 h-48 mx-auto mb-6 rounded-full bg-white/20 backdrop-blur-sm border-4 border-white/30 overflow-hidden shadow-2xl"
               >
-                <Sparkles className="w-16 h-16 text-white" />
+                <img 
+                  src={girl.imagePath} 
+                  alt={girl.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center"><svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg></div>';
+                  }}
+                />
               </motion.div>
               
               <motion.button
@@ -292,6 +306,20 @@ function App() {
             className="bg-white rounded-3xl p-6 md:p-8 shadow-2xl"
           >
             <div className="text-center mb-6">
+              {/* Ana Logo */}
+              <div className="mb-4 flex justify-center">
+                <motion.img
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                  src="/images/ana_logo.jpg"
+                  alt="Manifest Logo"
+                  className="h-20 w-auto object-contain"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              </div>
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-zeynep via-hilal to-esin mb-4">
                 <Icon className="w-8 h-8 text-white" />
               </div>
