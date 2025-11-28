@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .gradient-zeynep {
+    background: linear-gradient(135deg, #00BFFF 0%, #1E90FF 100%);
+  }
+  
+  .gradient-hilal {
+    background: linear-gradient(135deg, #9370DB 0%, #BA55D3 100%);
+  }
+  
+  .gradient-esin {
+    background: linear-gradient(135deg, #FFD700 0%, #FF69B4 100%);
+  }
+  
+  .gradient-sueda {
+    background: linear-gradient(135deg, #800020 0%, #4B0000 100%);
+  }
+  
+  .gradient-lidya {
+    background: linear-gradient(135deg, #DC143C 0%, #000000 100%);
+  }
+  
+  .gradient-mina {
+    background: linear-gradient(135deg, #F5F5DC 0%, #FFFFFF 100%);
+  }
+}
+
